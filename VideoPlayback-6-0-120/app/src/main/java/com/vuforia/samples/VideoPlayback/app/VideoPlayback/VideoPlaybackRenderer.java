@@ -12,6 +12,7 @@ package com.vuforia.samples.VideoPlayback.app.VideoPlayback;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.Arrays;
 import java.util.Vector;
 
 import javax.microedition.khronos.egl.EGLConfig;
@@ -561,14 +562,18 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
             modelViewMatrix[currentTarget] = Tool
                     .convertPose2GLMatrix(trackableResult.getPose());
 
+            float[] tempp = modelViewMatrix[currentTarget].getData();
+            Log.i("TAG", Arrays.toString(tempp));
             isTracking[currentTarget] = true;
 
             targetPositiveDimensions[currentTarget] = imageTarget.getSize();
 
             // The pose delivers the center of the target, thus the dimensions
             // go from -width/2 to width/2, same for height
-            temp[0] = targetPositiveDimensions[currentTarget].getData()[0] / 2.0f;
-            temp[1] = targetPositiveDimensions[currentTarget].getData()[1] / 2.0f;
+            temp[0] =  200;
+                    //(targetPositiveDimensions[currentTarget].getData()[0] / 2.0f) +100;
+            temp[1] = 200;
+                    //targetPositiveDimensions[currentTarget].getData()[1] / 2.0f;
             targetPositiveDimensions[currentTarget].setData(temp);
 
             // If the movie is ready to start playing or it has reached the end
@@ -579,6 +584,7 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
                     || (currentStatus[currentTarget] == VideoPlayerHelper.MEDIA_STATE.ERROR)) {
                 float[] modelViewMatrixKeyframe = Tool.convertPose2GLMatrix(
                         trackableResult.getPose()).getData();
+
                 float[] modelViewProjectionKeyframe = new float[16];
 
 //                 Matrix.translateM(modelViewMatrixKeyframe, 0, 0.0f, 0.0f,

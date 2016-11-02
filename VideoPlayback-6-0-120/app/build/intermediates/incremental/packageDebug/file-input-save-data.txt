@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Nov 02 16:55:12 CST 2016
+#Wed Nov 02 17:45:20 CST 2016
 25.file=/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/assets/debug/Edificios_Monumentos.dat
 41.base=/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/assets/debug
 25.base=/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/assets/debug

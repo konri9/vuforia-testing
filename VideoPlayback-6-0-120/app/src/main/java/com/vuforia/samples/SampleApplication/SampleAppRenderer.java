@@ -314,7 +314,7 @@ public class SampleAppRenderer {
 
         VideoBackgroundConfig config = new VideoBackgroundConfig();
         config.setEnabled(true);
-        config.setPosition(new Vec2I(0, 0));
+        config.setPosition(new Vec2I(0,0));
 
         int xSize = 0, ySize = 0;
         // We keep the aspect ratio to keep the video correctly rendered. If it is portrait we

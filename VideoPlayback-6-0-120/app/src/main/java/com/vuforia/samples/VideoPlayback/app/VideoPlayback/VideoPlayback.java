@@ -53,8 +53,8 @@ import com.vuforia.samples.VideoPlayback.ui.SampleAppMenu.SampleAppMenuInterface
 
 
 // The AR activity for the VideoPlayback sample.
-public class VideoPlayback extends Activity implements
-    SampleApplicationControl, SampleAppMenuInterface
+public class VideoPlayback extends Activity implements SampleApplicationControl
+    , SampleAppMenuInterface
 {
     private static final String LOGTAG = "VideoPlayback";
     

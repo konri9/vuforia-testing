@@ -16,7 +16,7 @@ import com.vuforia.State;
 public interface SampleApplicationControl
 {
     
-    // To be called to initialize the trackers
+    // To be calSampleApplicationControlled to initialize the trackers
     boolean doInitTrackers();
     
     
