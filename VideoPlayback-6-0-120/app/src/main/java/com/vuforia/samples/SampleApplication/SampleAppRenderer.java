@@ -355,6 +355,8 @@ public class SampleAppRenderer {
         mViewport = new int[4];
         mViewport[0] = ((mScreenWidth - xSize) / 2) + config.getPosition().getData()[0];
         mViewport[1] = ((mScreenHeight - ySize) / 2) + config.getPosition().getData()[1];
+//        mViewport[0] = 20;
+//        mViewport[1] = 20;
         mViewport[2] = xSize;
         mViewport[3] = ySize;
 

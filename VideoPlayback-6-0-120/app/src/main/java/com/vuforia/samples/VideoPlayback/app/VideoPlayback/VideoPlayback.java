@@ -359,8 +359,8 @@ public class VideoPlayback extends Activity implements
             if (mVideoPlayerHelper[i].isPlayableOnTexture())
             {
                 mSeekPosition[i] = mVideoPlayerHelper[i].getCurrentPosition();
-                mWasPlaying[i] = mVideoPlayerHelper[i].getStatus() == MEDIA_STATE.PLAYING ? true
-                    : false;
+                mWasPlaying[i] = true;
+//                         mVideoPlayerHelper[i].getStatus() == MEDIA_STATE.PLAYING ? true: false;
             }
             
             // We also need to release the resources used by the helper, though
@@ -469,7 +469,7 @@ public class VideoPlayback extends Activity implements
         // Create OpenGL ES view:
         int depthSize = 16;
         int stencilSize = 0;
-        boolean translucent = Vuforia.requiresAlpha();
+        boolean translucent = true;//Vuforia.requiresAlpha();
         
         mGlView = new SampleApplicationGLView(this);
         mGlView.init(translucent, depthSize, stencilSize);
@@ -491,7 +491,7 @@ public class VideoPlayback extends Activity implements
         
         for (int i = 0; i < NUM_TARGETS; i++)
         {
-            float[] temp = { 0f, 0f, 0f };
+            float[] temp = { 1.0f, 1.0f, 0f };
             mRenderer.targetPositiveDimensions[i].setData(temp);
             mRenderer.videoPlaybackTextureID[i] = -1;
         }
@@ -683,8 +683,8 @@ public class VideoPlayback extends Activity implements
             // that the OpenGL ES surface view gets added
             // BEFORE the camera is started and video
             // background is configured.
-            addContentView(mGlView, new LayoutParams(LayoutParams.MATCH_PARENT,
-                LayoutParams.MATCH_PARENT));
+            addContentView(mGlView, new LayoutParams(LayoutParams.WRAP_CONTENT,
+                LayoutParams.WRAP_CONTENT));
             
             // Sets the UILayout to be drawn in front of the camera
             mUILayout.bringToFront();

@@ -3,30 +3,30 @@
 
     <item
         is-multidex="true"
-        jar="/Users/konradjimenezc/Downloads/vufitos/VideoPlayback-6-0-120/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="22.0.1"
-        sha1="9cbd49feb9462ba5d07a0f25d23cf0f4f01849be">
-        <dex dex="/Users/konradjimenezc/Downloads/vufitos/VideoPlayback-6-0-120/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_4a6c7388343da4c45cfeb3e875a6b579eb469e47/classes.dex" />
+        sha1="c53f3b6c7b9ca10b6e9e4b11681f785e83febb28">
+        <dex dex="/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_0b81d1b1de1b469b3921f010cbd0a7a6473cc564/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/konradjimenezc/Downloads/vuforia-sdk-android-6-0-117/build/java/vuforia/Vuforia.jar"
+        jar="/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="7f11370049640046ce5cf875464773eda9a32a67">
+        <dex dex="/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_56e01e204072249a936e139dca439578b5566157/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/vuforia-sdk-android-6-0-117/build/java/vuforia/Vuforia.jar"
         jumboMode="true"
         optimize="true"
         revision="22.0.1"
         sha1="68bf3aa0a0e9c14d708c2c6cdbd475aee6ca9dfe">
-        <dex dex="/Users/konradjimenezc/Downloads/vufitos/VideoPlayback-6-0-120/app/build/intermediates/transforms/dex/debug/folders/1000/2/Vuforia_88fb92546f896fe243310fdfd54fad0faf75d5d5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/konradjimenezc/Downloads/vufitos/VideoPlayback-6-0-120/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="22.0.1"
-        sha1="2b5f37fb6f1fb67f0af02757f8e70a296e84947b">
-        <dex dex="/Users/konradjimenezc/Downloads/vufitos/VideoPlayback-6-0-120/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_0f807f4f5ec4c51c82fef501253e47d044870608/classes.dex" />
+        <dex dex="/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/transforms/dex/debug/folders/1000/2/Vuforia_9578aa612484a48aa7ed6baa398f4bab5825a307/classes.dex" />
     </item>
 
 </items>

@@ -1,0 +1,7 @@
+#Wed Nov 02 16:55:12 CST 2016
+base.0=/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_56e01e204072249a936e139dca439578b5566157
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_0b81d1b1de1b469b3921f010cbd0a7a6473cc564/classes.dex
+base.1=/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_0b81d1b1de1b469b3921f010cbd0a7a6473cc564
+file.0=/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_56e01e204072249a936e139dca439578b5566157/classes.dex

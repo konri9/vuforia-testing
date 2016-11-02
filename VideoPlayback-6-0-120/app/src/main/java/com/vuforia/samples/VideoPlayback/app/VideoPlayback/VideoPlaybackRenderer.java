@@ -73,8 +73,9 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
 
     // We cannot use the default texture coordinates of the quad since these
     // will change depending on the video itself
-    private float videoQuadTextureCoords[] = {0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
-            1.0f, 0.0f, 1.0f,};
+    private float videoQuadTextureCoords[] = { 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, };
+//            {0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,};
+
 
     // This variable will hold the transformed coordinates (changes every frame)
     private float videoQuadTextureCoordsTransformedStones[] = {0.0f, 0.0f,
@@ -154,8 +155,8 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
             mVideoPlayerHelper[i] = null;
             mMovieName[i] = "";
             mCanRequestType[i] = MEDIA_TYPE.ON_TEXTURE_FULLSCREEN;
-            mSeekPosition[i] = 0;
-            mShouldPlayImmediately[i] = false;
+            mSeekPosition[i] = 1;
+            mShouldPlayImmediately[i] = true;
             mLostTrackingSince[i] = -1;
             mLoadRequested[i] = false;
         }
@@ -274,8 +275,8 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
                     mVideoPlayerHelper[i]
                             .getSurfaceTextureTransformMatrix(mTexCoordTransformationMatrix[i]);
                     setVideoDimensions(i,
-                            mVideoPlayerHelper[i].getVideoWidth(),
-                            mVideoPlayerHelper[i].getVideoHeight(),
+                            100,//mVideoPlayerHelper[i].getVideoWidth(),
+                            100,//mVideoPlayerHelper[i].getVideoHeight(),
                             mTexCoordTransformationMatrix[i]);
                 }
 
@@ -579,8 +580,9 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
                 float[] modelViewMatrixKeyframe = Tool.convertPose2GLMatrix(
                         trackableResult.getPose()).getData();
                 float[] modelViewProjectionKeyframe = new float[16];
-                // Matrix.translateM(modelViewMatrixKeyframe, 0, 0.0f, 0.0f,
-                // targetPositiveDimensions[currentTarget].getData()[0]);
+
+//                 Matrix.translateM(modelViewMatrixKeyframe, 0, 0.0f, 0.0f,
+//                 targetPositiveDimensions[currentTarget].getData()[0]);
 
                 // Here we use the aspect ratio of the keyframe since it
                 // is likely that it is not a perfect square
@@ -593,10 +595,14 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
                             / targetPositiveDimensions[currentTarget].getData()[0];
 
                 Matrix.scaleM(modelViewMatrixKeyframe, 0,
-                        targetPositiveDimensions[currentTarget].getData()[0],
-                        targetPositiveDimensions[currentTarget].getData()[0]
-                                * ratio,
-                        targetPositiveDimensions[currentTarget].getData()[0]);
+//                        targetPositiveDimensions[currentTarget].getData()[0],
+//                        targetPositiveDimensions[currentTarget].getData()[0]
+//                                * ratio,
+//                        targetPositiveDimensions[currentTarget].getData()[0]);
+                        90,
+                        50 * videoQuadAspectRatio[currentTarget],
+                        200);
+
                 Matrix.multiplyMM(modelViewProjectionKeyframe, 0,
                         projectionMatrix, 0, modelViewMatrixKeyframe, 0);
 
@@ -640,11 +646,16 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
                 // targetPositiveDimensions[currentTarget].getData()[0]);
 
                 // Here we use the aspect ratio of the video frame
+//                Matrix.scaleM(modelViewMatrixVideo, 0,
+//                        targetPositiveDimensions[currentTarget].getData()[0],
+//                        targetPositiveDimensions[currentTarget].getData()[0]
+//                                * videoQuadAspectRatio[currentTarget],
+//                        targetPositiveDimensions[currentTarget].getData()[0]);
                 Matrix.scaleM(modelViewMatrixVideo, 0,
-                        targetPositiveDimensions[currentTarget].getData()[0],
-                        targetPositiveDimensions[currentTarget].getData()[0]
-                                * videoQuadAspectRatio[currentTarget],
-                        targetPositiveDimensions[currentTarget].getData()[0]);
+                        90,
+                        50 * videoQuadAspectRatio[currentTarget],
+                        200);
+
                 Matrix.multiplyMM(modelViewProjectionVideo, 0,
                         projectionMatrix, 0, modelViewMatrixVideo, 0);
 
@@ -668,7 +679,7 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
 
                 GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
 
-                // IMPORTANT:
+                // L:Joio
                 // Notice here that the texture that we are binding is not the
                 // typical GL_TEXTURE_2D but instead the GL_TEXTURE_EXTERNAL_OES
                 GLES20.glBindTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES,
