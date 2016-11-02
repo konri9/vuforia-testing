@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/res/merged/debug/layout/sample_app_menu_layer.xml",
+        "source": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/src/main/res/layout/sample_app_menu_layer.xml"
+    },
+    {
+        "merged": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/res/merged/debug/layout/fullscreen_layout.xml",
+        "source": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/src/main/res/layout/fullscreen_layout.xml"
+    },
+    {
+        "merged": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/res/merged/debug/layout/sample_app_menu_group.xml",
+        "source": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/src/main/res/layout/sample_app_menu_group.xml"
+    },
+    {
+        "merged": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/res/merged/debug/layout/camera_overlay.xml",
+        "source": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/src/main/res/layout/camera_overlay.xml"
+    },
+    {
+        "merged": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/res/merged/debug/layout/sample_app_menu_group_radio_button.xml",
+        "source": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/src/main/res/layout/sample_app_menu_group_radio_button.xml"
+    },
+    {
+        "merged": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/res/merged/debug/layout/sample_app_menu_group_divider.xml",
+        "source": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/src/main/res/layout/sample_app_menu_group_divider.xml"
+    },
+    {
+        "merged": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/res/merged/debug/layout/about_screen.xml",
+        "source": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/src/main/res/layout/about_screen.xml"
+    },
+    {
+        "merged": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/res/merged/debug/layout/splash_screen.xml",
+        "source": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/src/main/res/layout/splash_screen.xml"
+    }
+]
