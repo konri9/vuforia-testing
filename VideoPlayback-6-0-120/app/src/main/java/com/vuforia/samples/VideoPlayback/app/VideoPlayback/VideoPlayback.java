@@ -678,14 +678,10 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
             southLayout.setBackgroundColor(getResources().getColor(R.color.white));
 
             titleTextView = (TextView) findViewById(R.id.testview);
-            titleTextView.setText("Titulo");
+            titleTextView.setText("- -");
 
             descriptionTextView = (TextView) findViewById(R.id.testview2);
-            descriptionTextView.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-                    "Sed nec congue diam. Suspendisse ac tristique nisl." +
-                    " Donec tincidunt mauris lorem, non pharetra ex auctor quis. " +
-                    "Nunc libero magna, vehicula eu dolor a, iaculis porta odio." +
-                    " Sed quis lobortis turpis, ut congue velit.");
+            descriptionTextView.setText("No hay ningún punto de interés seleccionado");
 
             // Sets the UILayout to be drawn in front of the camera
             mUILayout.bringToFront();
