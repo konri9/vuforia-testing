@@ -532,6 +532,7 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
                     break;
                 case "osos_amorosos":
                     currentTarget = VideoPlayback.OSOS;
+                    break;
                 case "mate":
                     currentTarget = VideoPlayback.MATE;
                     break;
