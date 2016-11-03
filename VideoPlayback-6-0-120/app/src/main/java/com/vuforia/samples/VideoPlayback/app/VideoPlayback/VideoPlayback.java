@@ -712,7 +712,7 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
             if (!result)
                 Log.e(LOGTAG, "Unable to enable continuous autofocus");
 
-            mSampleAppMenu = new SampleAppMenu(this, this, "Video Playback",
+            mSampleAppMenu = new SampleAppMenu(this, this, "UCR RA",
                     mGlView, mUILayout, null);
             setSampleAppMenuSettings();
 
@@ -809,6 +809,11 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
         }
 
         return result;
+    }
+
+    public void updateTextFields (String title, String description) {
+        titleTextView.setText(title);
+        descriptionTextView.setText(description);
     }
 
 }

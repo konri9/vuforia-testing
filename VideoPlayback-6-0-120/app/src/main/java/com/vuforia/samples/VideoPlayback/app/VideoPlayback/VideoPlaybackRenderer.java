@@ -24,6 +24,7 @@ import android.opengl.GLES11Ext;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -557,36 +558,33 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
                 case "centro_inform":
                     currentTarget = VideoPlayback.INFO;
                     break;
-//                case "fernando_baud":
-//                    currentTarget = VideoPlayback.TARGET_12;
-//                    break;
-//                case "centro_inform":
-//                    currentTarget = VideoPlayback.TARGET_13;
-//                    break;
                 default:
                     currentTarget = 0;
                     break;
 
             }
-//                currentTarget = VideoPlayback.STONES;
-//            else
-//                currentTarget = VideoPlayback.CHIPS;
 
+            // Método para updeitear los textfields
+           // Get a handler that can be used to post to the main thread
+//            Handler mainHandler = new Handler(mActivity.getApplicationContext().getMainLooper());
+//            Runnable myRunnable = new Runnable() {
+//                @Override
+//                public void run() {
+//
+//                } // This is your code
+//            };
+//            mainHandler.post(myRunnable);
 
+            mActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mActivity.updateTextFields("Fofi1", "Hola he detectado a fofi");
+                }
+            });
 
-//            float[] tempp = modelViewMatrix[currentTarget].getData();
-//            tempp[4]+=0.4f;
-//            tempp[6]+=0.4f;
-
-//            modelViewMatrix[currentTarget].setData(tempp);
-//            Log.i("TAG", Arrays.toString(tempp));
-//            Matrix34F Pose = trackableResult.getPose();
-//            Tool.setTranslation(Pose, new Vec3F(1.0f,1.0f,1.0f));
 
             modelViewMatrix[currentTarget] = Tool
                     .convertPose2GLMatrix(trackableResult.getPose());
-//            modelViewMatrix[currentTarget] = Tool.convertPose2GLMatrix(Pose);
-
             isTracking[currentTarget] = true;
 
             targetPositiveDimensions[currentTarget] = imageTarget.getSize();
@@ -634,7 +632,7 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
 
                 Matrix.multiplyMM(modelViewProjectionKeyframe, 0,
                         projectionMatrix, 0, modelViewMatrixKeyframe, 0);
-                
+
                 for (int i = 0; i < modelViewProjectionKeyframe.length; i++) {
                     modelViewProjectionKeyframe[i] = (i % 5 == 0) ? 1 : 0;
                 }
