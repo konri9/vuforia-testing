@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="targets">
+       <item>Escultura “Antárticos”</item>
+        <item>Escultura "Osos Amorosos"</item>
+        <item>Escuela de Física y Matemáticas</item>
+        <item>Leda y el Cisne</item>
+        <item>Placa de Plaza 24 de Abril</item>
+        <item>Biblioteca Carlos Monge</item>
+        <item>Comedor Universitario</item>
+        <item>Busto de José Joaquín Gutiérrez</item>
+        <item>Facultad de Derecho</item>
+        <item>Centro de Informática</item>
+        <item>Escuela de Estudios Generales</item>
+        <item>Licenciado Fernando Bauza</item>
+        <item>Centro de Informática</item>
+    </string-array>
+
+    <string-array name="descriptions">
+        <item>Escultura “Antárticos”</item>
+        <item>Escultura "Osos Amorosos"</item>
+        <item>Escuela de Física y Matemáticas</item>
+        <item>Leda y el Cisne</item>
+        <item>Placa de Plaza 24 de Abril</item>
+        <item>Biblioteca Carlos Monge</item>
+        <item>Comedor Universitario</item>
+        <item>Busto de José Joaquín Gutiérrez</item>
+        <item>Facultad de Derecho</item>
+        <item>Centro de Informática</item>
+        <item>Escuela de Estudios Generales</item>
+        <item>Licenciado Fernando Bauza</item>
+        <item>Centro de Informática</item>
+    </string-array>
+
+
+</resources>

@@ -47,6 +47,7 @@ import com.vuforia.samples.SampleApplication.SampleAppRendererControl;
 import com.vuforia.samples.SampleApplication.utils.SampleMath;
 import com.vuforia.samples.SampleApplication.utils.SampleUtils;
 import com.vuforia.samples.SampleApplication.utils.Texture;
+import com.vuforia.samples.VideoPlayback.R;
 import com.vuforia.samples.VideoPlayback.app.VideoPlayback.VideoPlayerHelper.MEDIA_STATE;
 import com.vuforia.samples.VideoPlayback.app.VideoPlayback.VideoPlayerHelper.MEDIA_TYPE;
 
@@ -137,6 +138,8 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
     float keyframeQuadAspectRatio[] = new float[VideoPlayback.NUM_TARGETS];
 
 
+    String [] titleArray, descriptionArray;
+
     public VideoPlaybackRenderer(VideoPlayback activity,
                                  SampleApplicationSession session) {
 
@@ -146,6 +149,9 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
         // SampleAppRenderer used to encapsulate the use of RenderingPrimitives setting
         // the device mode AR/VR and stereo mode
         mSampleAppRenderer = new SampleAppRenderer(this, mActivity, Device.MODE.MODE_AR, false, 10f, 5000f);
+
+        titleArray = mActivity.getResources().getStringArray(R.array.targets);
+        descriptionArray = mActivity.getResources().getStringArray(R.array.descriptions);
 
         // Create an array of the size of the number of targets we have
         mVideoPlayerHelper = new VideoPlayerHelper[VideoPlayback.NUM_TARGETS];
@@ -519,6 +525,7 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
             // We store the modelview matrix to be used later by the tap
             // calculation
 //            if (imageTarget.getName().compareTo("stones") == 0)
+
             switch (imageTarget.getName()) {
                 case "antarticos":
                     currentTarget = VideoPlayback.ANTART;
@@ -564,21 +571,13 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
 
             }
 
+            final String mTitle = titleArray [currentTarget];
+            final String mDescription = descriptionArray [currentTarget];
             // Método para updeitear los textfields
-           // Get a handler that can be used to post to the main thread
-//            Handler mainHandler = new Handler(mActivity.getApplicationContext().getMainLooper());
-//            Runnable myRunnable = new Runnable() {
-//                @Override
-//                public void run() {
-//
-//                } // This is your code
-//            };
-//            mainHandler.post(myRunnable);
-
             mActivity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    mActivity.updateTextFields("Fofi1", "Hola he detectado a fofi");
+                    mActivity.updateTextFields(mTitle, mDescription);
                 }
             });
 
