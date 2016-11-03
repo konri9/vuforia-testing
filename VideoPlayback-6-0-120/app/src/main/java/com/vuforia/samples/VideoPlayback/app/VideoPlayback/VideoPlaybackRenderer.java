@@ -30,6 +30,7 @@ import android.util.Log;
 
 import com.vuforia.Device;
 import com.vuforia.ImageTarget;
+import com.vuforia.Matrix34F;
 import com.vuforia.Matrix44F;
 import com.vuforia.Renderer;
 import com.vuforia.State;
@@ -82,7 +83,8 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
 
 
     // This variable will hold the transformed coordinates (changes every frame)
-    private float videoQuadTextureCoordsTransformedStones[] = {0.0f, 0.0f,
+    private float videoQuadTextureCoordsTransformedStones[] =
+            {0.0f, 0.0f,
             1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,};
 
     private float videoQuadTextureCoordsTransformedChips[] = {0.0f, 0.0f,
@@ -517,45 +519,45 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
             // calculation
 //            if (imageTarget.getName().compareTo("stones") == 0)
             switch (imageTarget.getName()) {
-                case "busto4":
-                    currentTarget = VideoPlayback.TARGET_1;
-                    break;
-                case "busto3":
-                    currentTarget = VideoPlayback.TARGET_2;
-                    break;
-                case "busto2":
-                    currentTarget = VideoPlayback.TARGET_3;
-                    break;
-                case "busto1":
-                    currentTarget = VideoPlayback.TARGET_4;
-                    break;
                 case "mate":
-                    currentTarget = VideoPlayback.TARGET_5;
+                    currentTarget = VideoPlayback.MATE;
+                    break;
+                case "leda":
+                    currentTarget = VideoPlayback.LEDA;
+                    break;
+                case "plaza-24-min":
+                    currentTarget = VideoPlayback.PLAZA;
+                    break;
+                case "monge-1":
+                    currentTarget = VideoPlayback.MONGE;
+                    break;
+                case "comedor-1":
+                    currentTarget = VideoPlayback.COMEDOR;
                     break;
                 case "derecho":
-                    currentTarget = VideoPlayback.TARGET_6;
+                    currentTarget = VideoPlayback.DERECHO;
                     break;
-                case "Jose_Joa_1":
-                    currentTarget = VideoPlayback.TARGET_7;
+                case "busto2":
+                    currentTarget = VideoPlayback.BUSTO;
                     break;
                 case "ecci":
-                    currentTarget = VideoPlayback.TARGET_8;
-                    break;
-                case "JoseJoaquin_Odonto":
-                    currentTarget = VideoPlayback.TARGET_9;
-                    break;
-                case "techo_carlos_monge":
-                    currentTarget = VideoPlayback.TARGET_10;
+                    currentTarget = VideoPlayback.ECCI;
                     break;
                 case "Girasol-UCR_Generales":
-                    currentTarget = VideoPlayback.TARGET_11;
+                    currentTarget = VideoPlayback.GIRASOL;
                     break;
                 case "fernando_baud":
-                    currentTarget = VideoPlayback.TARGET_12;
+                    currentTarget = VideoPlayback.FERNANDO;
                     break;
                 case "centro_inform":
-                    currentTarget = VideoPlayback.TARGET_13;
+                    currentTarget = VideoPlayback.INFO;
                     break;
+//                case "fernando_baud":
+//                    currentTarget = VideoPlayback.TARGET_12;
+//                    break;
+//                case "centro_inform":
+//                    currentTarget = VideoPlayback.TARGET_13;
+//                    break;
                 default:
                     currentTarget = 0;
                     break;
@@ -565,21 +567,31 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
 //            else
 //                currentTarget = VideoPlayback.CHIPS;
 
+
+
+//            float[] tempp = modelViewMatrix[currentTarget].getData();
+//            tempp[4]+=0.4f;
+//            tempp[6]+=0.4f;
+
+//            modelViewMatrix[currentTarget].setData(tempp);
+//            Log.i("TAG", Arrays.toString(tempp));
+//            Matrix34F Pose = trackableResult.getPose();
+//            Tool.setTranslation(Pose, new Vec3F(1.0f,1.0f,1.0f));
+
             modelViewMatrix[currentTarget] = Tool
                     .convertPose2GLMatrix(trackableResult.getPose());
+//            modelViewMatrix[currentTarget] = Tool.convertPose2GLMatrix(Pose);
 
-            float[] tempp = modelViewMatrix[currentTarget].getData();
-            Log.i("TAG", Arrays.toString(tempp));
             isTracking[currentTarget] = true;
 
             targetPositiveDimensions[currentTarget] = imageTarget.getSize();
 
             // The pose delivers the center of the target, thus the dimensions
             // go from -width/2 to width/2, same for height
-            temp[0] =  200;
-                    //(targetPositiveDimensions[currentTarget].getData()[0] / 2.0f) +100;
-            temp[1] = 200;
-                    //targetPositiveDimensions[currentTarget].getData()[1] / 2.0f;
+            temp[0] =  //200;
+                    (targetPositiveDimensions[currentTarget].getData()[0] / 2.0f) +100;
+            temp[1] = //200;
+                    targetPositiveDimensions[currentTarget].getData()[1] / 2.0f;
             targetPositiveDimensions[currentTarget].setData(temp);
 
             // If the movie is ready to start playing or it has reached the end
@@ -617,7 +629,7 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
 
                 Matrix.multiplyMM(modelViewProjectionKeyframe, 0,
                         projectionMatrix, 0, modelViewMatrixKeyframe, 0);
-
+                
                 for (int i = 0; i < modelViewProjectionKeyframe.length; i++) {
                     modelViewProjectionKeyframe[i] = (i % 5 == 0) ? 1 : 0;
                 }

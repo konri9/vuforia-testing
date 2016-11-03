@@ -68,20 +68,19 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
     
     // Movie for the Targets:
     public static final int NUM_TARGETS = 13;
-    public static final int TARGET_1 = 0;
-    public static final int TARGET_2 = 1;
-    public static final int TARGET_3 = 2;
-    public static final int TARGET_4 = 3;
-    public static final int TARGET_5 = 4;
-    public static final int TARGET_6 = 5;
-    public static final int TARGET_7 = 6;
-    public static final int TARGET_8 = 7;
-    public static final int TARGET_9 = 8;
-    public static final int TARGET_10 =9;
-    public static final int TARGET_11 =10;
-    public static final int TARGET_12 =11;
-    public static final int TARGET_13 =12;
-
+    public static final int MATE = 0;
+    public static final int LEDA = 1;
+    public static final int PLAZA = 2;
+    public static final int MONGE = 3;
+    public static final int COMEDOR = 4;
+    public static final int BUSTO = 5;
+    public static final int DERECHO = 6;
+    public static final int ECCI = 7;
+    public static final int GIRASOL = 8;
+    public static final int FERNANDO =9;
+    public static final int INFO =10;
+//    public static final int TARGET_12 =11;
+//    public static final int TARGET_13 =12;
 
     private VideoPlayerHelper mVideoPlayerHelper[] = null;
     private int mSeekPosition[] = null;
@@ -156,11 +155,38 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
             mVideoPlayerHelper[i].init();
             mVideoPlayerHelper[i].setActivity(this);
         }
-        for(int i = 0; i<NUM_TARGETS ; i=i+2) {
-            mMovieName[i] = "VideoPlayback/video-comedor.mp4";
-            if(i<12)
-            mMovieName[i+1] = "VideoPlayback/video-comedor.mp4";
-        }
+
+
+        // "carlos-monge.mp4"
+        // "centro-info.mp4"
+        // "comedor.mp4"
+        // "derecho.mp4"
+        // "generales.mp4"
+        // "joaquin.mp4"
+        // "leda.mp4"
+        // "mate.mp4"
+
+        mMovieName[0] = "VideoPlayback/mate.mp4";
+        mMovieName[1] = "VideoPlayback/leda.mp4";
+        mMovieName[2] = "VideoPlayback/leda.mp4";
+        mMovieName[3] = "VideoPlayback/carlos-monge.mp4";
+        mMovieName[4] = "VideoPlayback/comedor.mp4";
+        mMovieName[5] = "VideoPlayback/joaquin.mp4";
+        mMovieName[6] = "VideoPlayback/derecho.mp4";
+        mMovieName[7] = "VideoPlayback/derecho.mp4";
+        mMovieName[8] = "VideoPlayback/generales.mp4";
+        mMovieName[9] = "VideoPlayback/generales.mp4";
+        mMovieName[10] = "VideoPlayback/centro-info.mp4";
+//        mMovieName[11] = "centro_inform";
+//        mMovieName[12] = "centro_inform";
+
+//
+//        for(int i = 0; i<NUM_TARGETS ; i=i+2) {
+//            mMovieName[i] = "VideoPlayback/video-comedor.mp4";
+//
+//            if(i<12)
+//            mMovieName[i+1] = "VideoPlayback/video-comedor.mp4";
+//        }
         
         // Set the double tap listener:
         mGestureDetector.setOnDoubleTapListener(new OnDoubleTapListener()

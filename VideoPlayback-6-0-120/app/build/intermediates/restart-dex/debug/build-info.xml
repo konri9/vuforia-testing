@@ -4,19 +4,19 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="37186427855350"
+    timestamp="44429886390461"
     token="-1495200197126344969"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="59" />
+        duration="547" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="10" />
+        duration="27" />
     <task
         name="verifier"
         duration="3" />
@@ -26,7 +26,7 @@
         type="MAIN" />
 
     <build
-        timestamp="37186427855350"
+        timestamp="44429886390461"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/outputs/apk/VideoPlayback-6-0-120-debug.apk"
