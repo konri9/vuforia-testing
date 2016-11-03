@@ -19,6 +19,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import android.annotation.SuppressLint;
+import android.opengl.GLES11;
 import android.opengl.GLES11Ext;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
@@ -29,6 +30,7 @@ import android.util.Log;
 
 import com.vuforia.Device;
 import com.vuforia.ImageTarget;
+import com.vuforia.Matrix34F;
 import com.vuforia.Matrix44F;
 import com.vuforia.Renderer;
 import com.vuforia.State;
@@ -79,7 +81,8 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
 
 
     // This variable will hold the transformed coordinates (changes every frame)
-    private float videoQuadTextureCoordsTransformedStones[] = {0.0f, 0.0f,
+    private float videoQuadTextureCoordsTransformedStones[] =
+            {0.0f, 0.0f,
             1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,};
 
     private float videoQuadTextureCoordsTransformedChips[] = {0.0f, 0.0f,
@@ -559,21 +562,31 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
 //            else
 //                currentTarget = VideoPlayback.CHIPS;
 
+
+
+//            float[] tempp = modelViewMatrix[currentTarget].getData();
+//            tempp[4]+=0.4f;
+//            tempp[6]+=0.4f;
+
+//            modelViewMatrix[currentTarget].setData(tempp);
+//            Log.i("TAG", Arrays.toString(tempp));
+            Matrix34F Pose = trackableResult.getPose();
+            Tool.setTranslation(Pose, new Vec3F(1.0f,1.0f,1.0f));
+
             modelViewMatrix[currentTarget] = Tool
                     .convertPose2GLMatrix(trackableResult.getPose());
+//            modelViewMatrix[currentTarget] = Tool.convertPose2GLMatrix(Pose);
 
-            float[] tempp = modelViewMatrix[currentTarget].getData();
-            Log.i("TAG", Arrays.toString(tempp));
             isTracking[currentTarget] = true;
 
             targetPositiveDimensions[currentTarget] = imageTarget.getSize();
 
             // The pose delivers the center of the target, thus the dimensions
             // go from -width/2 to width/2, same for height
-            temp[0] =  200;
-                    //(targetPositiveDimensions[currentTarget].getData()[0] / 2.0f) +100;
-            temp[1] = 200;
-                    //targetPositiveDimensions[currentTarget].getData()[1] / 2.0f;
+            temp[0] =  //200;
+                    (targetPositiveDimensions[currentTarget].getData()[0] / 2.0f) +100;
+            temp[1] = //200;
+                    targetPositiveDimensions[currentTarget].getData()[1] / 2.0f;
             targetPositiveDimensions[currentTarget].setData(temp);
 
             // If the movie is ready to start playing or it has reached the end
@@ -611,6 +624,8 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
 
                 Matrix.multiplyMM(modelViewProjectionKeyframe, 0,
                         projectionMatrix, 0, modelViewMatrixKeyframe, 0);
+
+                GLES11.glLoadIdentity();
 
                 GLES20.glUseProgram(keyframeShaderID);
 

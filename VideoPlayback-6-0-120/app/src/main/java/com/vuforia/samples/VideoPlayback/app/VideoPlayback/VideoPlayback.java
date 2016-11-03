@@ -156,11 +156,38 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
             mVideoPlayerHelper[i].init();
             mVideoPlayerHelper[i].setActivity(this);
         }
-        for(int i = 0; i<NUM_TARGETS ; i=i+2) {
-            mMovieName[i] = "VideoPlayback/video-comedor.mp4";
-            if(i<12)
-            mMovieName[i+1] = "VideoPlayback/video-comedor.mp4";
-        }
+
+
+        // "carlos-monge.mp4"
+        // "centro-info.mp4"
+        // "comedor.mp4"
+        // "derecho.mp4"
+        // "generales.mp4"
+        // "joaquin.mp4"
+        // "leda.mp4"
+        // "mate.mp4"
+        
+        mMovieName[0] = "";
+        mMovieName[1] = "";
+        mMovieName[2] = "";
+        mMovieName[3] = "";
+        mMovieName[4] = "";
+        mMovieName[5] = "";
+        mMovieName[6] = "";
+        mMovieName[7] = "";
+        mMovieName[8] = "";
+        mMovieName[9] = "";
+        mMovieName[10] = "";
+        mMovieName[11] = "";
+        mMovieName[12] = "";
+
+//
+//        for(int i = 0; i<NUM_TARGETS ; i=i+2) {
+//            mMovieName[i] = "VideoPlayback/video-comedor.mp4";
+//
+//            if(i<12)
+//            mMovieName[i+1] = "VideoPlayback/video-comedor.mp4";
+//        }
         
         // Set the double tap listener:
         mGestureDetector.setOnDoubleTapListener(new OnDoubleTapListener()
