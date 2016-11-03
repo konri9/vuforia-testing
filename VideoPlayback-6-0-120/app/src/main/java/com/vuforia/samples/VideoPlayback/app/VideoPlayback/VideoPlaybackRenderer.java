@@ -519,6 +519,11 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
             // calculation
 //            if (imageTarget.getName().compareTo("stones") == 0)
             switch (imageTarget.getName()) {
+                case "antarticos":
+                    currentTarget = VideoPlayback.ANTART;
+                    break;
+                case "osos_amorosos":
+                    currentTarget = VideoPlayback.OSOS;
                 case "mate":
                     currentTarget = VideoPlayback.MATE;
                     break;

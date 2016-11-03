@@ -67,20 +67,20 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
     private SimpleOnGestureListener mSimpleListener = null;
     
     // Movie for the Targets:
-    public static final int NUM_TARGETS = 13;
-    public static final int MATE = 0;
-    public static final int LEDA = 1;
-    public static final int PLAZA = 2;
-    public static final int MONGE = 3;
-    public static final int COMEDOR = 4;
-    public static final int BUSTO = 5;
-    public static final int DERECHO = 6;
-    public static final int ECCI = 7;
-    public static final int GIRASOL = 8;
-    public static final int FERNANDO =9;
-    public static final int INFO =10;
-//    public static final int TARGET_12 =11;
-//    public static final int TARGET_13 =12;
+    public static final int NUM_TARGETS =   13;
+    public static final int ANTART =    0;
+    public static final int OSOS =      1;
+    public static final int MATE =      2;
+    public static final int LEDA =      3;
+    public static final int PLAZA =     4;
+    public static final int MONGE =     5;
+    public static final int COMEDOR =   6;
+    public static final int BUSTO =     7;
+    public static final int DERECHO =   8;
+    public static final int ECCI =      9;
+    public static final int GIRASOL =   10;
+    public static final int FERNANDO =  11;
+    public static final int INFO =      12;
 
     private VideoPlayerHelper mVideoPlayerHelper[] = null;
     private int mSeekPosition[] = null;
@@ -167,18 +167,19 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
         // "joaquin.mp4"
         // "leda.mp4"
         // "mate.mp4"
-
-        mMovieName[0] = "VideoPlayback/mate.mp4";
-        mMovieName[1] = "VideoPlayback/leda.mp4";
-        mMovieName[2] = "VideoPlayback/leda.mp4";
-        mMovieName[3] = "VideoPlayback/carlos-monge.mp4";
-        mMovieName[4] = "VideoPlayback/comedor.mp4";
-        mMovieName[5] = "VideoPlayback/joaquin.mp4";
-        mMovieName[6] = "VideoPlayback/derecho.mp4";
-        mMovieName[7] = "VideoPlayback/derecho.mp4";
-        mMovieName[8] = "VideoPlayback/generales.mp4";
-        mMovieName[9] = "VideoPlayback/generales.mp4";
-        mMovieName[10] = "VideoPlayback/centro-info.mp4";
+        mMovieName[0 ] = "VideoPlayback/leda.mp4";   //TODO antarticos
+        mMovieName[1 ] = "VideoPlayback/leda.mp4";   //TODO osos
+        mMovieName[2 ] = "VideoPlayback/mate.mp4";
+        mMovieName[3 ] = "VideoPlayback/leda.mp4";
+        mMovieName[4 ] = "VideoPlayback/leda.mp4";  //TODO 24 abril
+        mMovieName[5 ] = "VideoPlayback/carlos-monge.mp4";
+        mMovieName[6 ] = "VideoPlayback/comedor.mp4";
+        mMovieName[7 ] = "VideoPlayback/joaquin.mp4";
+        mMovieName[8 ] = "VideoPlayback/derecho.mp4";
+        mMovieName[9 ] = "VideoPlayback/derecho.mp4";  //TODO ecci
+        mMovieName[10] = "VideoPlayback/generales.mp4";
+        mMovieName[11] = "VideoPlayback/generales.mp4"; //TODO lic. fernando
+        mMovieName[12] = "VideoPlayback/centro-info.mp4";
 //        mMovieName[11] = "centro_inform";
 //        mMovieName[12] = "centro_inform";
 

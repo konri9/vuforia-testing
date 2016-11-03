@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="antarticos" size="350.000000 350.000000" />
+    <ImageTarget name="osos_amorosos" size="380.000000 219.874207" />
     <ImageTarget name="mate" size="300.000000 274.309387" />
     <ImageTarget name="leda" size="300.000000 451.127808" />
     <ImageTarget name="plaza-24-min" size="300.000000 199.449722" />
