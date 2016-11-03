@@ -5,24 +5,24 @@
     android:layout_height="match_parent"
     android:background="#0000"
     >
-    
+
 	<ScrollView
 	    android:background="#FFF"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
 	    android:orientation="vertical"
 	    >
-	          
-	    <LinearLayout 
-	    	android:id="@+id/settings_menu" 
+
+	    <LinearLayout
+	    	android:id="@+id/settings_menu"
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:background="#0000"
 		    android:orientation="vertical"
 	        >
-	        
-		    <TextView 
-			    android:id="@+id/settings_menu_title" 
+
+		    <TextView
+			    android:id="@+id/settings_menu_title"
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
 			    android:gravity="center_horizontal"
@@ -32,8 +32,8 @@
 			    android:textStyle="bold"
 			    android:textSize="@dimen/menu_title"
 		        />
-		    
+
 	     </LinearLayout>
 	</ScrollView>
-	
+
 </com.vuforia.samples.VideoPlayback.ui.SampleAppMenu.SampleAppMenuView>
