@@ -20,6 +20,10 @@
         "source": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/src/main/res/layout/sample_app_menu_group_radio_button.xml"
     },
     {
+        "merged": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/res/merged/debug/layout/main_ui.xml",
+        "source": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/src/main/res/layout/main_ui.xml"
+    },
+    {
         "merged": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/res/merged/debug/layout/sample_app_menu_group_divider.xml",
         "source": "/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/src/main/res/layout/sample_app_menu_group_divider.xml"
     },

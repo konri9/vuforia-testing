@@ -28,6 +28,7 @@ import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.vuforia.CameraDevice;
@@ -109,13 +110,18 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
     
     private LoadingDialogHandler loadingDialogHandler = new LoadingDialogHandler(
         this);
-    
+
+
     // Alert Dialog used to display SDK errors
     private AlertDialog mErrorDialog;
     
     boolean mIsInitialized = false;
-    
-    
+
+    private RelativeLayout northLayout;
+    private RelativeLayout southLayout;
+    private LinearLayout linearLayout;
+
+
     // Called when the activity first starts or the user navigates back
     // to an activity.
     protected void onCreate(Bundle savedInstanceState)
@@ -124,6 +130,9 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.main_ui);
+
+//        mUILayout = (RelativeLayout) findViewById(R.id.rel_layout);
+//        Log.i("YUPI", mUILayout.toString());
         
         vuforiaAppSession = new SampleApplicationSession(this);
         
@@ -158,31 +167,19 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
             mVideoPlayerHelper[i].setActivity(this);
         }
 
-
-        // "carlos-monge.mp4"
-        // "centro-info.mp4"
-        // "comedor.mp4"
-        // "derecho.mp4"
-        // "generales.mp4"
-        // "joaquin.mp4"
-        // "leda.mp4"
-        // "mate.mp4"
-        mMovieName[0 ] = "VideoPlayback/leda.mp4";   //TODO antarticos
-        mMovieName[1 ] = "VideoPlayback/leda.mp4";   //TODO osos
+        mMovieName[0 ] = "VideoPlayback/antarticos.mp4";
+        mMovieName[1 ] = "VideoPlayback/osos.mp4";
         mMovieName[2 ] = "VideoPlayback/mate.mp4";
         mMovieName[3 ] = "VideoPlayback/leda.mp4";
-        mMovieName[4 ] = "VideoPlayback/leda.mp4";  //TODO 24 abril
+        mMovieName[4 ] = "VideoPlayback/24-abril.mp4";
         mMovieName[5 ] = "VideoPlayback/carlos-monge.mp4";
         mMovieName[6 ] = "VideoPlayback/comedor.mp4";
         mMovieName[7 ] = "VideoPlayback/joaquin.mp4";
         mMovieName[8 ] = "VideoPlayback/derecho.mp4";
-        mMovieName[9 ] = "VideoPlayback/derecho.mp4";  //TODO ecci
+        mMovieName[9 ] = "VideoPlayback/centro-info.mp4";  //TODO ecci
         mMovieName[10] = "VideoPlayback/generales.mp4";
-        mMovieName[11] = "VideoPlayback/generales.mp4"; //TODO lic. fernando
+        mMovieName[11] = "VideoPlayback/fernando.mp4";
         mMovieName[12] = "VideoPlayback/centro-info.mp4";
-//        mMovieName[11] = "centro_inform";
-//        mMovieName[12] = "centro_inform";
-
 //
 //        for(int i = 0; i<NUM_TARGETS ; i=i+2) {
 //            mMovieName[i] = "VideoPlayback/video-comedor.mp4";
@@ -490,7 +487,7 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
         addContentView(mUILayout, new LayoutParams(LayoutParams.MATCH_PARENT,
             LayoutParams.MATCH_PARENT));
     }
-    
+
     
     // Initializes AR application components.
     private void initApplicationAR()
@@ -696,8 +693,22 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
         
         return result;
     }
-    
-    
+
+
+    private void addMainView () {
+
+        linearLayout = (LinearLayout) View.inflate(this, R.layout.main_ui,
+                null);
+
+        linearLayout.setVisibility(View.VISIBLE);
+//        linearLayout.setBackgroundColor(Color.RED);
+
+        // Adds the inflated layout to the view
+        addContentView(linearLayout, new LayoutParams(LayoutParams.WRAP_CONTENT,
+                LayoutParams.WRAP_CONTENT));
+    }
+
+
     @Override
     public void onInitARDone(SampleApplicationException exception)
     {
@@ -707,23 +718,41 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
             initApplicationAR();
             
             mRenderer.setActive(true);
-            
+            addMainView();
+
+
             // Now add the GL surface view. It is important
             // that the OpenGL ES surface view gets added
             // BEFORE the camera is started and video
             // background is configured.
-            addContentView(mGlView, new LayoutParams(LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT));
-            
+
+            northLayout = (RelativeLayout) findViewById(R.id.test_lay);
+            Log.i("yupi", northLayout.toString());
+
+            northLayout.addView(mGlView, new LayoutParams(LayoutParams.WRAP_CONTENT,
+                    LayoutParams.WRAP_CONTENT));
+
+           southLayout = (RelativeLayout) findViewById(R.id.test_lay);
+            Log.i("yupi", southLayout.toString());
+
+            southLayout.setBackgroundColor(getResources().getColor(R.color.white));
+
+
+
+
+
+
             // Sets the UILayout to be drawn in front of the camera
             mUILayout.bringToFront();
-            
+
             // Hides the Loading Dialog
             loadingDialogHandler
                 .sendEmptyMessage(LoadingDialogHandler.HIDE_LOADING_DIALOG);
             
             // Sets the layout background to transparent
             mUILayout.setBackgroundColor(Color.TRANSPARENT);
+//            addContentView(testLayout, new LayoutParams(LayoutParams.WRAP_CONTENT,
+//                    LayoutParams.WRAP_CONTENT));
             
             try
             {

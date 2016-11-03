@@ -20,6 +20,7 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
 import com.vuforia.samples.VideoPlayback.R;
+import com.vuforia.samples.VideoPlayback.app.VideoPlayback.VideoPlayback;
 
 
 public class ActivitySplashScreen extends Activity
@@ -53,11 +54,12 @@ public class ActivitySplashScreen extends Activity
             {
                 
                 Intent intent = new Intent(ActivitySplashScreen.this,
-                    AboutScreen.class);
-                intent.putExtra("ACTIVITY_TO_LAUNCH",
-                    "app.VideoPlayback.VideoPlayback");
-                intent.putExtra("ABOUT_TEXT_TITLE", "Video Playback");
-                intent.putExtra("ABOUT_TEXT", "VideoPlayback/VP_about.html");
+                    VideoPlayback.class);
+//                intent.putExtra("ACTIVITY_TO_LAUNCH",
+//                    "app.VideoPlayback.VideoPlayback");
+//                intent.putExtra("ABOUT_TEXT_TITLE", "Video Playback");
+//                intent.putExtra("ABOUT_TEXT", "VideoPlayback/VP_about.html");
+
                 startActivity(intent);
                 
             }
