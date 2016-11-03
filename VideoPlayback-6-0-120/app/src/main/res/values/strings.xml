@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">VidPlayback</string>
+    <string name="app_name">UCR RA 2</string>
     <string name="app_description">VideoPlayback Sample Application</string>
     
     <string name="button_start">Start</string>

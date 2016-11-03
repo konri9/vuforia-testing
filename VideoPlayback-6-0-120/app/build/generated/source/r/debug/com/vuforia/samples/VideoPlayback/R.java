@@ -40,15 +40,16 @@ public final class R {
         public static final int button_start=0x7f080001;
         public static final int camera_overlay_layout=0x7f080003;
         public static final int loading_indicator=0x7f080004;
-        public static final int logo_image=0x7f08000d;
-        public static final int menu_group_title=0x7f080009;
-        public static final int menu_group_title_divider=0x7f08000a;
+        public static final int logo_image=0x7f08000e;
+        public static final int menu_group_title=0x7f08000a;
+        public static final int menu_group_title_divider=0x7f08000b;
         public static final int rel_layout=0x7f080007;
-        public static final int settings_menu=0x7f08000b;
-        public static final int settings_menu_title=0x7f08000c;
+        public static final int settings_menu=0x7f08000c;
+        public static final int settings_menu_title=0x7f08000d;
         public static final int surface_view=0x7f080005;
         public static final int test_lay=0x7f080006;
-        public static final int text_view=0x7f080008;
+        public static final int testview=0x7f080008;
+        public static final int testview2=0x7f080009;
     }
     public static final class layout {
         public static final int about_screen=0x7f030000;
