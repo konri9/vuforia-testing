@@ -19,6 +19,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import android.annotation.SuppressLint;
+import android.opengl.GLES11;
 import android.opengl.GLES11Ext;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
@@ -46,6 +47,8 @@ import com.vuforia.samples.SampleApplication.utils.SampleUtils;
 import com.vuforia.samples.SampleApplication.utils.Texture;
 import com.vuforia.samples.VideoPlayback.app.VideoPlayback.VideoPlayerHelper.MEDIA_STATE;
 import com.vuforia.samples.VideoPlayback.app.VideoPlayback.VideoPlayerHelper.MEDIA_TYPE;
+
+import static android.opengl.GLES20.GL_CULL_FACE;
 
 
 // The renderer class for the VideoPlayback sample.
@@ -91,8 +94,8 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
     static int NUM_QUAD_VERTEX = 4;
     static int NUM_QUAD_INDEX = 6;
 
-    double quadVerticesArray[] = {-1.0f, -1.0f, 0.0f, 1.0f, -1.0f, 0.0f, 1.0f,
-            1.0f, 0.0f, -1.0f, 1.0f, 0.0f};
+    double quadVerticesArray[] = {-1.0f, -1.0f, 0.0f, 0.3f, -1.0f, 0.0f, 0.3f,
+            0.05f, 0.0f, -1.0f, 0.05f, 0.0f};
 
     double quadTexCoordsArray[] = {0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f,
             1.0f};
@@ -335,7 +338,6 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
     @SuppressLint("InlinedApi")
     void initRendering() {
         Log.d(LOGTAG, "VideoPlayback VideoPlaybackRenderer initRendering");
-
         // Define clear color
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, Vuforia.requiresAlpha() ? 0.0f
                 : 1.0f);
@@ -483,8 +485,12 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
         // reflected as well,
         // therefore standard counter clockwise face culling will result in
         // "inside out" models.
-        GLES20.glEnable(GLES20.GL_CULL_FACE);
+        GLES20.glEnable(GL_CULL_FACE);
         GLES20.glCullFace(GLES20.GL_BACK);
+        if (Renderer.getInstance().getVideoBackgroundConfig().getReflection() == VIDEO_BACKGROUND_REFLECTION.VIDEO_BACKGROUND_REFLECTION_ON)
+            GLES20.glFrontFace(GLES20.GL_CW); // Front camera
+        else
+            GLES20.glFrontFace(GLES20.GL_CCW); // Back camera
 
         if (tappingProjectionMatrix == null) {
             tappingProjectionMatrix = new Matrix44F();
@@ -612,6 +618,10 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
                 Matrix.multiplyMM(modelViewProjectionKeyframe, 0,
                         projectionMatrix, 0, modelViewMatrixKeyframe, 0);
 
+                for (int i = 0; i < modelViewProjectionKeyframe.length; i++) {
+                    modelViewProjectionKeyframe[i] = (i % 5 == 0) ? 1 : 0;
+                }
+
                 GLES20.glUseProgram(keyframeShaderID);
 
                 // Prepare for rendering the keyframe
@@ -648,6 +658,14 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
                 float[] modelViewMatrixVideo = Tool.convertPose2GLMatrix(
                         trackableResult.getPose()).getData();
                 float[] modelViewProjectionVideo = new float[16];
+
+                GLES20.glDepthFunc(GLES20.GL_LESS);
+                GLES20.glClearDepthf(1.0f);
+                //GLES20.glDepthMask(false);
+                //GLES20.glDisable(GLES20.GL_BLEND);
+                //GLES20.glDisable(GLES20.GL_DEPTH_TEST);
+                GLES20.glEnable(GLES20.GL_BLEND);
+                GLES20.glBlendFunc(GLES20.GL_SRC_ALPHA, GLES20.GL_ONE_MINUS_SRC_ALPHA);
                 // Matrix.translateM(modelViewMatrixVideo, 0, 0.0f, 0.0f,
                 // targetPositiveDimensions[currentTarget].getData()[0]);
 
@@ -664,6 +682,10 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
 
                 Matrix.multiplyMM(modelViewProjectionVideo, 0,
                         projectionMatrix, 0, modelViewMatrixVideo, 0);
+
+                for (int i = 0; i < modelViewProjectionVideo.length; i++) {
+                    modelViewProjectionVideo[i] = (i % 5 == 0) ? 1 : 0;
+                }
 
                 GLES20.glUseProgram(videoPlaybackShaderID);
 
@@ -702,6 +724,7 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
                 GLES20.glDisableVertexAttribArray(videoPlaybackTexCoordHandle);
 
                 GLES20.glUseProgram(0);
+                GLES20.glDisable(GLES20.GL_BLEND);
 
             }
 
@@ -751,6 +774,10 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
                                 (targetPositiveDimensions[currentTarget].getData()[1] / 2.0f));
                 Matrix.multiplyMM(modelViewProjectionButton, 0,
                         projectionMatrix, 0, modelViewMatrixButton, 0);
+
+                for (int i = 0; i < modelViewProjectionButton.length; i++) {
+                    modelViewProjectionButton[i] = (i % 5 == 0) ? 1 : 0;
+                }
 
                 GLES20.glUseProgram(keyframeShaderID);
 

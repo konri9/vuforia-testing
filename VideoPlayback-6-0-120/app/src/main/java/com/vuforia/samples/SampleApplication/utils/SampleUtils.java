@@ -34,6 +34,7 @@ public class SampleUtils
             {
                 Log.e(LOGTAG, "Could NOT compile shader " + shaderType + " : "
                     + GLES20.glGetShaderInfoLog(shader));
+                System.out.println(GLES20.glGetShaderInfoLog(shader));
                 GLES20.glDeleteShader(shader);
                 shader = 0;
             }
