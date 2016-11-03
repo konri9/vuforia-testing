@@ -122,6 +122,8 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
     {
         Log.d(LOGTAG, "onCreate");
         super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.main_ui);
         
         vuforiaAppSession = new SampleApplicationSession(this);
         
@@ -786,40 +788,42 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
             }
         });
     }
-    
-    
+
+
+
+
     @Override
     public void onVuforiaUpdate(State state)
     {
     }
-    
+
     final private static int CMD_BACK = -1;
     final private static int CMD_FULLSCREEN_VIDEO = 1;
-    
-    
+
+
     // This method sets the menu's settings
     private void setSampleAppMenuSettings()
     {
         SampleAppMenuGroup group;
-        
+
         group = mSampleAppMenu.addGroup("", false);
         group.addTextItem(getString(R.string.menu_back), -1);
-        
+
         group = mSampleAppMenu.addGroup("", true);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH)
         {
             group.addSelectionItem(getString(R.string.menu_playFullscreenVideo),
                 CMD_FULLSCREEN_VIDEO, mPlayFullscreenVideo);
         }
-        
+
         mSampleAppMenu.attachMenu();
     }
-    
-    
+
+
     @Override
     public boolean menuProcess(int command)
     {
-        
+
         boolean result = true;
         
         switch (command)
