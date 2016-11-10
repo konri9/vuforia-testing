@@ -80,14 +80,14 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
 
     // We cannot use the default texture coordinates of the quad since these
     // will change depending on the video itself
-    private float videoQuadTextureCoords[] = { 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, };
+    private float videoQuadTextureCoords[] = {0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f,};
 //            {0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,};
 
 
     // This variable will hold the transformed coordinates (changes every frame)
     private float videoQuadTextureCoordsTransformedStones[] =
             {0.0f, 0.0f,
-            1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,};
+                    1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,};
 
     private float videoQuadTextureCoordsTransformedChips[] = {0.0f, 0.0f,
             1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,};
@@ -138,7 +138,7 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
     float keyframeQuadAspectRatio[] = new float[VideoPlayback.NUM_TARGETS];
 
 
-    String [] titleArray, descriptionArray;
+    String[] titleArray, descriptionArray;
 
     public VideoPlaybackRenderer(VideoPlayback activity,
                                  SampleApplicationSession session) {
@@ -321,6 +321,7 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
             }
         }
 
+
         // If you would like the video to start playing as soon as it starts
         // tracking
         // and pause as soon as tracking is lost you can do that here by
@@ -347,6 +348,7 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
     @SuppressLint("InlinedApi")
     void initRendering() {
         Log.d(LOGTAG, "VideoPlayback VideoPlaybackRenderer initRendering");
+
         // Define clear color
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, Vuforia.requiresAlpha() ? 0.0f
                 : 1.0f);
@@ -418,12 +420,12 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
             .get(0).mHeight / (float) mTextures.get(0).mWidth;
         keyframeQuadAspectRatio[VideoPlayback.CHIPS] = (float) mTextures.get(1).mHeight
             / (float) mTextures.get(1).mWidth;*/
-        for (int i = 0; i <13; i=i+2) {
+        for (int i = 0; i < 13; i = i + 2) {
             keyframeQuadAspectRatio[i] = (float) mTextures.get(0).mHeight
                     / (float) mTextures.get(0).mWidth;
-            if(i<12)
-            keyframeQuadAspectRatio[i + 1] = (float) mTextures.get(1).mHeight
-                    / (float) mTextures.get(1).mWidth;
+            if (i < 12)
+                keyframeQuadAspectRatio[i + 1] = (float) mTextures.get(1).mHeight
+                        / (float) mTextures.get(1).mWidth;
         }
 
 
@@ -520,67 +522,62 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
             ImageTarget imageTarget = (ImageTarget) trackableResult
                     .getTrackable();
 
-            int currentTarget;
+            int currentTarget = 0;
 
             // We store the modelview matrix to be used later by the tap
             // calculation
-//            if (imageTarget.getName().compareTo("stones") == 0)
-
-            switch (imageTarget.getName()) {
-                case "antarticos":
-                    currentTarget = VideoPlayback.ANTART;
-                    break;
-                case "osos_amorosos":
-                    currentTarget = VideoPlayback.OSOS;
-                    break;
-                case "mate":
-                    currentTarget = VideoPlayback.MATE;
-                    break;
-                case "leda":
-                    currentTarget = VideoPlayback.LEDA;
-                    break;
-                case "plaza-24-min":
-                    currentTarget = VideoPlayback.PLAZA;
-                    break;
-                case "monge-1":
-                    currentTarget = VideoPlayback.MONGE;
-                    break;
-                case "comedor-1":
-                    currentTarget = VideoPlayback.COMEDOR;
-                    break;
-                case "derecho":
-                    currentTarget = VideoPlayback.DERECHO;
-                    break;
-                case "busto2":
-                    currentTarget = VideoPlayback.BUSTO;
-                    break;
-                case "ecci":
-                    currentTarget = VideoPlayback.ECCI;
-                    break;
-                case "Girasol-UCR_Generales":
-                    currentTarget = VideoPlayback.GIRASOL;
-                    break;
-                case "fernando_baud":
-                    currentTarget = VideoPlayback.FERNANDO;
-                    break;
-                case "centro_inform":
-                    currentTarget = VideoPlayback.INFO;
-                    break;
-                default:
-                    currentTarget = 0;
-                    break;
-
+            if (imageTarget.getName().toLowerCase().contains("antarticos")) {
+                currentTarget = VideoPlayback.ANTART;
+            } else if (imageTarget.getName().toLowerCase().contains("osos_amorosos")) {
+                currentTarget = VideoPlayback.OSOS;
+            } else if (imageTarget.getName().toLowerCase().contains("mate")) {
+                currentTarget = VideoPlayback.MATE;
+            } else if (imageTarget.getName().toLowerCase().contains("leda")) {
+                currentTarget = VideoPlayback.LEDA;
+            } else if (imageTarget.getName().toLowerCase().contains("plaza24")) {
+                currentTarget = VideoPlayback.PLAZA;
+            } else if (imageTarget.getName().toLowerCase().contains("carlos_monge")) {
+                currentTarget = VideoPlayback.MONGE;
+            } else if (imageTarget.getName().toLowerCase().contains("comedor")) {
+                currentTarget = VideoPlayback.COMEDOR;
+            } else if (imageTarget.getName().toLowerCase().contains("derecho")) {
+                currentTarget = VideoPlayback.DERECHO;
+            } else if (imageTarget.getName().toLowerCase().contains("busto2")) {
+                currentTarget = VideoPlayback.BUSTO;
+            } else if (imageTarget.getName().toLowerCase().contains("ecci")) {
+                currentTarget = VideoPlayback.ECCI;
+            } else if (imageTarget.getName().toLowerCase().contains("generales")) {
+                currentTarget = VideoPlayback.GIRASOL;
+            } else if (imageTarget.getName().toLowerCase().contains("fernando")) {
+                currentTarget = VideoPlayback.FERNANDO;
+            } else if (imageTarget.getName().toLowerCase().contains("centro_inform")) {
             }
 
-            final String mTitle = titleArray [currentTarget];
-            final String mDescription = descriptionArray [currentTarget];
+            final String mTitle = titleArray[currentTarget];
+            final String mDescription = descriptionArray[currentTarget];
+
             // Método para updeitear los textfields
             mActivity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     mActivity.updateTextFields(mTitle, mDescription);
                 }
-            });
+            });//
+//            mActivity.runOnUiThread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    mActivity.updateTextFields(mTitle, mDescription);
+//                }
+//            });
+
+//
+//            mActivity.runOnUiThread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    mActivity.updateTextFields(mTitle, mDescription);
+//                }
+//            });
+
 
 
             modelViewMatrix[currentTarget] = Tool
@@ -592,7 +589,7 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
             // The pose delivers the center of the target, thus the dimensions
             // go from -width/2 to width/2, same for height
             temp[0] =  //200;
-                    (targetPositiveDimensions[currentTarget].getData()[0] / 2.0f) +100;
+                    (targetPositiveDimensions[currentTarget].getData()[0] / 2.0f) + 100;
             temp[1] = //200;
                     targetPositiveDimensions[currentTarget].getData()[1] / 2.0f;
             targetPositiveDimensions[currentTarget].setData(temp);
@@ -615,7 +612,7 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
                 // is likely that it is not a perfect square
 
                 float ratio = 1.0f;
-                if (mTextures.get(currentTarget%2).mSuccess)
+                if (mTextures.get(currentTarget % 2).mSuccess)
                     ratio = keyframeQuadAspectRatio[currentTarget];
                 else
                     ratio = targetPositiveDimensions[currentTarget].getData()[1]
@@ -653,7 +650,7 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
                 // The first loaded texture from the assets folder is the
                 // keyframe
                 GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
-                        mTextures.get(currentTarget%2).mTextureID[0]);
+                        mTextures.get(currentTarget % 2).mTextureID[0]);
                 GLES20.glUniformMatrix4fv(keyframeMVPMatrixHandle, 1, false,
                         modelViewProjectionKeyframe, 0);
                 GLES20.glUniform1i(keyframeTexSampler2DHandle, 0);
@@ -811,6 +808,9 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
                 // texture to display. Notice that unlike the video these are
                 // regular
                 // GL_TEXTURE_2D textures
+
+                Log.i("STATUS", ""+currentTarget);
+                Log.i("STATUS", "" +currentStatus[currentTarget]);
                 switch (currentStatus[currentTarget]) {
                     case READY:
                         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
@@ -909,7 +909,7 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
         float mtx[] = textureCoordMatrix;
         float tempUVMultRes[] = new float[2];
 
-        if (target%2 == 1) {
+        if (target % 2 == 1) {
             tempUVMultRes = uvMultMat4f(
                     videoQuadTextureCoordsTransformedStones[0],
                     videoQuadTextureCoordsTransformedStones[1],
@@ -934,7 +934,7 @@ public class VideoPlaybackRenderer implements GLSurfaceView.Renderer, SampleAppR
                     videoQuadTextureCoords[6], videoQuadTextureCoords[7], mtx);
             videoQuadTextureCoordsTransformedStones[6] = tempUVMultRes[0];
             videoQuadTextureCoordsTransformedStones[7] = tempUVMultRes[1];
-        } else if (target%2 == 0) {
+        } else if (target % 2 == 0) {
             tempUVMultRes = uvMultMat4f(
                     videoQuadTextureCoordsTransformedChips[0],
                     videoQuadTextureCoordsTransformedChips[1],

@@ -56,7 +56,9 @@ import com.vuforia.samples.VideoPlayback.ui.SampleAppMenu.SampleAppMenuInterface
 
 // The AR activity for the VideoPlayback sample.
 public class VideoPlayback extends Activity implements SampleApplicationControl
-        , SampleAppMenuInterface {
+        , SampleAppMenuInterface
+
+{
     private static final String LOGTAG = "VideoPlayback";
 
     SampleApplicationSession vuforiaAppSession;
@@ -69,6 +71,7 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
 
     // Movie for the Targets:
     public static final int NUM_TARGETS = 13;
+
     public static final int ANTART = 0;
     public static final int OSOS = 1;
     public static final int MATE = 2;
@@ -810,6 +813,10 @@ public class VideoPlayback extends Activity implements SampleApplicationControl
     public void updateTextFields (String title, String description) {
         titleTextView.setText(title);
         descriptionTextView.setText(description);
+    }
+
+    public void showToast (String title) {
+        titleTextView.setText(title);
     }
 
 }

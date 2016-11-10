@@ -15,6 +15,19 @@
         <item>Decano de la Facultad de Derecho en 1939 y rector de la Universidad de Costa Rica por primera vez en 1946.</item>
         <item>Uno de los edificios más relevantes, pues toda la universidad depende del mismo tanto para gestiones de conexión con la Red como asuntos de TI.</item>
     </string-array>
+    <string-array name="target_hints">
+        <item>antarticos</item>
+        <item>osos_amorosos</item>
+        <item>mate</item>
+        <item>leda</item>
+        <item>derecho</item>
+        <item>fernando</item>
+
+        <item>plaza24</item>
+        <item>generales</item>
+        <item>carlos_monge</item>
+        <item>comedor</item>
+    </string-array>
     <string-array name="targets">
        <item>Escultura “Antárticos”</item>
         <item>Escultura "Osos Amorosos"</item>

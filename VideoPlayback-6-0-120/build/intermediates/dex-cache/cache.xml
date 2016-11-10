@@ -2,31 +2,13 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="22.0.1"
-        sha1="4d42682f15b7f6f7278321ece5a00c901761f509">
-        <dex dex="/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_0b81d1b1de1b469b3921f010cbd0a7a6473cc564/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="22.0.1"
-        sha1="ac8b5feecd3e5f2237349536f336b9800cef2d4a">
-        <dex dex="/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_56e01e204072249a936e139dca439578b5566157/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/vuforia-sdk-android-6-0-117/build/java/vuforia/Vuforia.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="22.0.1"
         sha1="68bf3aa0a0e9c14d708c2c6cdbd475aee6ca9dfe">
-        <dex dex="/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/transforms/dex/debug/folders/1000/2/Vuforia_9578aa612484a48aa7ed6baa398f4bab5825a307/classes.dex" />
+        <dex dex="/Users/konradjimenezc/UCR/II-2016/Inge/Vuforia2/VideoPlayback-6-0-120/app/build/intermediates/pre-dexed/debug/Vuforia_9578aa612484a48aa7ed6baa398f4bab5825a307.jar" />
     </item>
 
 </items>

@@ -33,5 +33,19 @@
         <item>Uno de los edificios más relevantes, pues toda la universidad depende del mismo tanto para gestiones de conexión con la Red como asuntos de TI.</item>
     </string-array>
 
+    <string-array name="target_hints">
+        <item>antarticos</item>
+        <item>osos_amorosos</item>
+        <item>mate</item>
+        <item>leda</item>
+        <item>derecho</item>
+        <item>fernando</item>
+
+        <item>plaza24</item>
+        <item>generales</item>
+        <item>carlos_monge</item>
+        <item>comedor</item>
+    </string-array>
+
 
 </resources>

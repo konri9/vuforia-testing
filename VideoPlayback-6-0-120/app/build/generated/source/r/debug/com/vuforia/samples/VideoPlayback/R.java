@@ -10,7 +10,8 @@ package com.vuforia.samples.VideoPlayback;
 public final class R {
     public static final class array {
         public static final int descriptions=0x7f060000;
-        public static final int targets=0x7f060001;
+        public static final int target_hints=0x7f060001;
+        public static final int targets=0x7f060002;
     }
     public static final class attr {
     }
